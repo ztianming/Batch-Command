@@ -1,19 +1,19 @@
-﻿@echo off
+@echo off
 setlocal enabledelayedexpansion
-:这里可以指定添加的后缀名
+:�������ָ�����ӵĺ�׺��
 set hz=jpg
 set batname=%0
 echo =================================================================
-echo                         输入 HY 为还原后缀 
-echo                        否则自动加上jpg后缀
-echo                           关闭直接X掉就好
+echo                         ���� HY Ϊ��ԭ��׺ 
+echo                        �����Զ�����jpg��׺
+echo                           �ر�ֱ��X���ͺ�
 echo =================================================================
-set /p a=你输入的是：
+set /p a=��������ǣ�
 if !a!==HY (
-echo !a! 文件正在还原
+echo !a! �ļ����ڻ�ԭ
 goto :return
 )
-::默认直接在名称后追加后缀
+::Ĭ��ֱ�������ƺ�׷�Ӻ�׺
 FOR /R %~dp0 %%i IN (*) DO (
 if NOT "%%~fi"==%batname% (
 ECHO "%%~nxi" TO "%%~nxi.!hz!"
@@ -29,7 +29,7 @@ FOR /R %~dp0 %%i IN (*) DO (
 if NOT "%%~fi"==%batname% (
 SET KK=%%~nxi
 SET RETUN=!KK:~0,-%getlennum%!
-ECHO 正在修改文件 %%~nxi TO !RETUN!
+ECHO �����޸��ļ� %%~nxi TO !RETUN!
 ren "%%~nxi" "!RETUN!"
 )
 )
